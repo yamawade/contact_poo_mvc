@@ -22,14 +22,14 @@
     if(isset($_POST['supprimer'])){
         $id = $_POST['id_contact'];
         Contact::SupprimerContact($BD,$id);
-        header("location:../View/ListeContact.php");
+        header("location:../View/ListeContact1.php");
         
     }
 
     if(isset($_POST['fav'])){
         $id = $_POST['id_contact'];
         Contact::MarquerFavori($BD,$id);
-        header("location:../View/ListeContact.php");
+        header("location:../View/ListeContact1.php");
         
     }
 
@@ -44,7 +44,7 @@
         }else{
             $contact= new Contact($nom,$prenom,$telephone,$favori);
             $contact->ModifierContact($BD,$_GET['id']);
-            header("location:../View/ListeContact.php");
+            header("location:../View/ListeContact1.php");
         }
     }
 

@@ -51,8 +51,8 @@
         <button type="submit" name="inscrire" class="inscrire">Ajouter ➡</button>
     </form>
     <div>
-        <form action="../View/ListeContact.php" method="post">
-            <button type="submit" type="submit" name="liste" class="listeUser">Voir Liste Contact</button>
+        <form action="../View/ListeContact1.php" method="post">
+            <button type="submit" name="liste" class="listeUser">Voir Liste Contact</button>
         </form>
     </div>
     

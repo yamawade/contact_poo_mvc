@@ -26,7 +26,7 @@
     </tr>
     <?php foreach($select as $s){?>
         <tr>
-            
+
             <td><?php echo $s['nom_contact'] ?></td>
             <td><?php echo $s['prenom_contact'] ?></td>
             <td><?php echo $s['telephone_contact'] ?></td>
