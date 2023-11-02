@@ -6,9 +6,13 @@
         $prenom=$_POST['prenom'];
         $telephone=$_POST['telephone'];
         $favori=$_POST['favori'];
+        $verifNum="SELECT * FROM contact WHERE telephone_contact='$telephone'";
+        $verNum=$BD->query($verifNum)->fetch();
 
         if(empty($nom) || empty($prenom) || empty($telephone) || empty($favori)){
             echo "Veuillez renseigner tous les champs !!!";
+        }elseif($verNum){
+            echo "Ce numero de telephone existe deja";
         }else{
             $contact= new Contact($nom,$prenom,$telephone,$favori);
             $contact->AjouterContact($BD);
@@ -18,6 +22,13 @@
     if(isset($_POST['supprimer'])){
         $id = $_POST['id_contact'];
         Contact::SupprimerContact($BD,$id);
+        header("location:../View/ListeContact.php");
+        
+    }
+
+    if(isset($_POST['fav'])){
+        $id = $_POST['id_contact'];
+        Contact::MarquerFavori($BD,$id);
         header("location:../View/ListeContact.php");
         
     }

@@ -90,10 +90,10 @@
             echo "Suppression réussi";
         }
 
-        // public static function MarquerFavori($BD,$id){
-        //     $fav="UPDATE contact SET favori=='oui' WHERE id_contact=$id";
-        //     $BD->query($fav);
-        // }
+        public static function MarquerFavori($BD,$id){
+            $fav="UPDATE contact SET favori='oui' WHERE id_contact=$id";
+            $BD->query($fav);
+        }
 
         public static function ListeContact($BD){
             $selection="SELECT * FROM contact";

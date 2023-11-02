@@ -32,11 +32,28 @@
             <td><?php echo $s['telephone_contact'] ?></td>
             <td><?php echo $s['favori'] ?></td>
             <td>
-                <form action="" method="post">
+                <?php
+                    if($s['favori']=='non'){
+                        echo "<form action='' method='post'>";
+                        echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' style='background-color:green; color:white;'>✏</a>"; 
+                        echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
+                        echo "<button type='submit' name='supprimer' style='background-color:red; color:white;'>🗑</button>";
+                        echo "<button type='submit' name='fav'>⭐</button>";
+                        echo "</form>";
+                    }else{
+                        echo "<form action='' method='post'>";
+                        echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' style='background-color:green; color:white;'>✏</a>"; 
+                        echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
+                        echo "<button type='submit' name='supprimer' style='background-color:red; color:white;'>🗑</button>";
+                        echo "</form>";
+                    }
+                ?>
+                <!-- <form action="" method="post">
                     <a href="../View/ModifContact.php?id=<?php echo $s['id_contact'] ?>" type='submit' style='background-color:green; color:white;'>✏</a> 
                     <input type="hidden" name="id_contact" value="<?php echo $s['id_contact'] ?>">
                     <button type="submit" name="supprimer" style="background-color:red; color:white;">🗑</button>
-                </form>
+                    <button type="submit" name="fav" >⭐</button>
+                </form> -->
             </td>
         </tr>
     <?php } ?>
