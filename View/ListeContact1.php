@@ -18,46 +18,72 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="text-primary offset-5">LISTES DES CONTACTS</h2>
-                <a href="../View/FormContact.php" class="btn btn-primary">Ajouter Contact</a>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>NOM</th>
-                        <th>PRENOM</th>
-                        <th>TELEPHONE</th>
-                        <th>FAVORI</th>
-                        <th>ACTION</th>
-                    </tr>
-                    <?php foreach($select as $s){?>
-                        <tr>
-                
-                            <td><?php echo $s['nom_contact'] ?></td>
-                            <td><?php echo $s['prenom_contact'] ?></td>
-                            <td><?php echo $s['telephone_contact'] ?></td>
-                            <td><?php echo $s['favori'] ?></td>
-                            <td>
-                                <?php
-                                    if($s['favori']=='non'){
-                                        echo "<form action='' method='post'>";
-                                        echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' class='btn btn-success btn-sm'>Modifier✏</a>"; 
-                                        echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
-                                        echo "<button type='submit' name='supprimer' class='btn btn-danger btn-sm offset-1'>Supprimer🗑</button>";
-                                        echo "<button type='submit' name='fav' class='offset-1'>Favori⭐</button>";
-                                        echo "</form>";
-                                    }else{
-                                        echo "<form action='' method='post'>";
-                                        echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' class='btn btn-success btn-sm'>Modifier✏</a>";
-                                        echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
-                                        echo "<button type='submit' name='supprimer' class='btn btn-danger btn-sm offset-1'>Supprimer🗑</button>";
-                                        echo "</form>";
-                                    }
-                                ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </table>
+            <div class="row">
+                <div class="col">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>NOM</th>
+                                <th>PRENOM</th>
+                                <th>TELEPHONE</th>
+                                <th>FAVORI</th>
+                                <th>ACTION</th>
+                            </tr>
+                            <?php foreach($select as $s){?>
+                                <tr>
+                        
+                                    <td><?php echo $s['nom_contact'] ?></td>
+                                    <td><?php echo $s['prenom_contact'] ?></td>
+                                    <td><?php echo $s['telephone_contact'] ?></td>
+                                    <td><?php echo $s['favori'] ?></td>
+                                    <td>
+                                        <?php
+                                            if($s['favori']=='non'){
+                                                echo "<form action='' method='post'>";
+                                                echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' class='btn btn-success btn-sm'>Modifier✏</a>"; 
+                                                echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
+                                                echo "<button type='submit' name='supprimer' class='btn btn-danger btn-sm offset-1'>Supprimer🗑</button>";
+                                                echo "<button type='submit' name='fav' class='offset-1'>Favori⭐</button>";
+                                                echo "</form>";
+                                            }else{
+                                                echo "<form action='' method='post'>";
+                                                echo "<a href='../View/ModifContact.php?id=$s[id_contact]' type='submit' class='btn btn-success btn-sm'>Modifier✏</a>";
+                                                echo "<input type='hidden' name='id_contact' value='$s[id_contact]'>";
+                                                echo "<button type='submit' name='supprimer' class='btn btn-danger btn-sm offset-1'>Supprimer🗑</button>";
+                                                echo "</form>";
+                                            }
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <form action="" method="post">
+                        <div class="card-header text-center bg-primary text-white mt-4">
+                            AJOUT CONTACT
+                        </div>
+                        <div class="card-body">
+                            <label for="">Nom</label>
+                            <input type="text" name="nom" class="form-control">
+                            <label for="">Prenom</label>
+                            <input type="text" name="prenom" class="form-control">
+                            <label for="">Telephone</label>
+                            <input type="text" name="telephone" class="form-control">
+                            <label for="">Favori</label>
+                            <select name="favori" id="" class="form-control">
+                                <option value="">... Faites votre choix ...</option>
+                                <option value="oui">oui</option>
+                                <option value="non">non</option>
+                            </select>
+                            <button name="inscrire" type="submit" class="btn btn-outline-primary mt-2 offset-5">Ajouter ➡</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            
         </div>
     </div>
     
